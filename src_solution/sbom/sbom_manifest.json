@@ -1,0 +1,93 @@
+{
+  "_note": "SBOM-манифест решения src_solution: ДВБ отдельно от прочих компонентов.",
+  "timestamp": "2026-03-24T00:00:00Z",
+  "tcb": {
+    "serialNumber": "urn:uuid:aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "metadata": {
+      "type": "application",
+      "name": "abu-solution-tcb",
+      "version": "1.0.0"
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "src_solution.abu.tcb.event_log",
+        "version": "1.0.0",
+        "bom_ref": "tcb-event-log"
+      },
+      {
+        "type": "library",
+        "name": "src_solution.abu.tcb.policies",
+        "version": "1.0.0",
+        "bom_ref": "tcb-policies"
+      },
+      {
+        "type": "library",
+        "name": "src_solution.abu.tcb.security_monitor",
+        "version": "1.0.0",
+        "bom_ref": "tcb-security-monitor"
+      }
+    ],
+    "dependencies": [
+      {
+        "ref": "tcb-security-monitor",
+        "dependsOn": [
+          "tcb-event-log",
+          "tcb-policies"
+        ]
+      },
+      {
+        "ref": "tcb-event-log",
+        "dependsOn": []
+      },
+      {
+        "ref": "tcb-policies",
+        "dependsOn": []
+      }
+    ]
+  },
+  "other": {
+    "serialNumber": "urn:uuid:bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "metadata": {
+      "type": "application",
+      "name": "abu-solution-other",
+      "version": "1.0.0"
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "src_solution.abu.other.pseudo_ai",
+        "version": "1.0.0",
+        "bom_ref": "other-pseudo-ai"
+      },
+      {
+        "type": "library",
+        "name": "src_solution.abu.other.numpy_workflow",
+        "version": "1.0.0",
+        "bom_ref": "other-numpy-workflow"
+      },
+      {
+        "type": "library",
+        "name": "numpy",
+        "version": "1.26.0",
+        "bom_ref": "pkg:pypi/numpy@1.26.0"
+      }
+    ],
+    "dependencies": [
+      {
+        "ref": "other-pseudo-ai",
+        "dependsOn": []
+      },
+      {
+        "ref": "other-numpy-workflow",
+        "dependsOn": [
+          "pkg:pypi/numpy@1.26.0"
+        ]
+      },
+      {
+        "ref": "pkg:pypi/numpy@1.26.0",
+        "dependsOn": []
+      }
+    ]
+  }
+}

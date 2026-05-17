@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "default": "deny",
+  "allows": [
+    {
+      "from": "other_ai",
+      "to": "tcb_monitor",
+      "operation": "submit_command"
+    },
+    {
+      "from": "other_runtime",
+      "to": "tcb_monitor",
+      "operation": "submit_telemetry"
+    }
+  ]
+}
